@@ -1,10 +1,10 @@
 // ===== IMAGE GALLERY =====
 const images = [
-    { src: 'images/stelvio-front.jpg', alt: 'Alfa Romeo Stelvio - Vista Frontale' },
-    { src: 'images/stelvio-side-front.jpg', alt: 'Alfa Romeo Stelvio - Vista Laterale Anteriore' },
-    { src: 'images/stelvio-side.jpg', alt: 'Alfa Romeo Stelvio - Vista Laterale' },
-    { src: 'images/stelvio-rear.jpg', alt: 'Alfa Romeo Stelvio - Vista Posteriore' },
-    { src: 'images/stelvio-interior.jpg', alt: 'Alfa Romeo Stelvio - Interni' }
+    { src: 'images/stelvio-front.jpeg', alt: 'Alfa Romeo Stelvio - Vista Frontale' },
+    { src: 'images/stelvio-side-front.jpeg', alt: 'Alfa Romeo Stelvio - Vista Laterale Anteriore' },
+    { src: 'images/stelvio-side.jpeg', alt: 'Alfa Romeo Stelvio - Vista Laterale' },
+    { src: 'images/stelvio-rear.jpeg', alt: 'Alfa Romeo Stelvio - Vista Posteriore' },
+    { src: 'images/stelvio-interior.jpeg', alt: 'Alfa Romeo Stelvio - Interni' }
 ];
 
 let currentIndex = 0;
