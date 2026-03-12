@@ -61,13 +61,49 @@ galleryMain.addEventListener('touchend', (e) => {
     }
 }, { passive: true });
 
+// ===== MOBILE MENU =====
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+let mobileNav = null;
+
+mobileMenuBtn.addEventListener('click', () => {
+    if (!mobileNav) {
+        mobileNav = document.createElement('div');
+        mobileNav.className = 'mobile-nav';
+        mobileNav.innerHTML = `
+            <a href="#occasione">L'Auto</a>
+            <a href="#perche-noi">Perche Noi</a>
+            <a href="#servizi">Servizi</a>
+            <a href="#contatti">Contatti</a>
+            <a href="https://wa.me/393284120553?text=Ciao!%20Sono%20interessato%20all%27Alfa%20Romeo%20Stelvio%20vista%20sul%20vostro%20sito." class="btn btn-whatsapp" target="_blank" rel="noopener">
+                Scrivici su WhatsApp
+            </a>
+        `;
+        document.body.appendChild(mobileNav);
+
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+            });
+        });
+    }
+
+    mobileNav.classList.toggle('active');
+    mobileMenuBtn.classList.toggle('active');
+});
+
 // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const headerOffset = 70;
+            const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({
+                top: elementPosition - headerOffset,
+                behavior: 'smooth'
+            });
         }
     });
 });
@@ -87,7 +123,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-document.querySelectorAll('.spec-card, .finance-card, .highlight-box, .dealer-info, .dealer-map').forEach(el => {
+document.querySelectorAll('.trust-card, .spec-card, .finance-card, .service-card, .review-card, .highlight-box, .dealer-card, .dealer-map, .contact-form-wrapper').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
@@ -98,3 +134,42 @@ document.querySelectorAll('.spec-card, .finance-card, .highlight-box, .dealer-in
 const style = document.createElement('style');
 style.textContent = '.visible { opacity: 1 !important; transform: translateY(0) !important; }';
 document.head.appendChild(style);
+
+// ===== HEADER SCROLL EFFECT =====
+let lastScroll = 0;
+const header = document.querySelector('.header');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    if (currentScroll > 100) {
+        header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.5)';
+    } else {
+        header.style.boxShadow = 'none';
+    }
+    lastScroll = currentScroll;
+}, { passive: true });
+
+// ===== CONTACT FORM - WhatsApp Redirect =====
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const nome = document.getElementById('nome').value;
+        const telefono = document.getElementById('telefono').value;
+        const richiesta = document.getElementById('richiesta');
+        const richiestaText = richiesta.options[richiesta.selectedIndex].text;
+        const messaggio = document.getElementById('messaggio').value;
+
+        let text = `Ciao! Mi chiamo ${nome}.\n`;
+        text += `Telefono: ${telefono}\n`;
+        text += `Vorrei: ${richiestaText}\n`;
+        if (messaggio) {
+            text += `Messaggio: ${messaggio}\n`;
+        }
+        text += `\n(Inviato dalla landing page Alfa Romeo Stelvio)`;
+
+        const encoded = encodeURIComponent(text);
+        window.open(`https://wa.me/393284120553?text=${encoded}`, '_blank');
+    });
+}
