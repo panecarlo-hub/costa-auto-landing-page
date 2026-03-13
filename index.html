@@ -70,10 +70,16 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 .btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
 .hero-visual{position:relative;animation:fadeUp 1s .2s ease both}
 .hero-img-wrap{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/3}
-.hero-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 6s ease}
-.hero-img-wrap:hover img{transform:scale(1.05)}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover;transition:opacity .4s ease}
 .hero-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(37,211,102,.1) 0%,transparent 50%);pointer-events:none}
 .hero-guarantee{position:absolute;top:20px;right:20px;background:var(--accent);color:#000;padding:12px 18px;border-radius:12px;font-weight:700;font-size:13px;letter-spacing:.5px;text-transform:uppercase;box-shadow:0 8px 30px var(--accent-glow)}
+.hero-gallery-nav{position:absolute;top:50%;left:0;right:0;display:flex;justify-content:space-between;padding:0 10px;transform:translateY(-50%);z-index:5;pointer-events:none}
+.hero-gallery-nav button{pointer-events:all;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);border:none;color:var(--white);font-size:18px;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center}
+.hero-gallery-nav button:hover{background:rgba(37,211,102,.7)}
+.hero-thumbs{display:flex;gap:8px;margin-top:12px}
+.hero-thumbs img{width:72px;height:52px;object-fit:cover;border-radius:8px;cursor:pointer;opacity:.45;border:2px solid transparent;transition:all .3s}
+.hero-thumbs img:hover{opacity:.75}
+.hero-thumbs img.active{opacity:1;border-color:var(--accent)}
 /* STATS BAR */
 .stats-bar{position:relative;z-index:5;padding:40px 0;border-top:1px solid var(--dark-border);border-bottom:1px solid var(--dark-border)}
 .stats-bar .container{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
@@ -102,6 +108,12 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 .car-card-details{font-size:13px;color:var(--gray);margin-bottom:16px}
 .car-card-price{font-family:var(--font-display);font-size:28px;color:var(--accent)}
 .car-card-badge{display:inline-block;background:rgba(37,211,102,.1);color:var(--accent);font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;margin-top:12px;letter-spacing:.5px;text-transform:uppercase}
+.cars-wrapper{position:relative}
+.cars-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(37,211,102,.9);border:none;color:#000;font-size:20px;cursor:pointer;z-index:5;transition:all .3s;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px var(--accent-glow)}
+.cars-nav:hover{background:var(--accent);transform:translateY(-50%) scale(1.1)}
+.cars-nav.prev{left:-16px}
+.cars-nav.next{right:-16px}
+@media(max-width:968px){.cars-nav.prev{left:8px}.cars-nav.next{right:8px}}
 .carosello-cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:48px;justify-content:center}
 /* STEPS */
 .steps{padding:100px 0}
@@ -232,10 +244,21 @@ Chiedi Info su WhatsApp
 </div>
 <div class="hero-visual">
 <div class="hero-img-wrap">
-<img src="images/stelvio-front.jpeg" alt="Alfa Romeo Stelvio">
+<img id="heroMainImg" src="images/stelvio-front.jpeg" alt="Alfa Romeo Stelvio">
 <div class="hero-img-overlay"></div>
+<div class="hero-gallery-nav">
+<button id="heroPrev">&#10094;</button>
+<button id="heroNext">&#10095;</button>
+</div>
 </div>
 <div class="hero-guarantee">&#10003; GARANZIA 12 MESI</div>
+<div class="hero-thumbs" id="heroThumbs">
+<img class="active" src="images/stelvio-front.jpeg" alt="Frontale" data-i="0">
+<img src="images/stelvio-side-front.jpeg" alt="Laterale anteriore" data-i="1">
+<img src="images/stelvio-side.jpeg" alt="Laterale" data-i="2">
+<img src="images/stelvio-rear.jpeg" alt="Posteriore" data-i="3">
+<img src="images/stelvio-interior.jpeg" alt="Interni" data-i="4">
+</div>
 </div>
 </div>
 </section>
@@ -297,7 +320,10 @@ Chiedi Info su WhatsApp
 <div class="section-title reveal">Trova la tua prossima auto.</div>
 </div>
 <div class="container">
-<div class="cars-scroll">
+<div class="cars-wrapper">
+<button class="cars-nav prev" id="carsPrev">&#10094;</button>
+<button class="cars-nav next" id="carsNext">&#10095;</button>
+<div class="cars-scroll" id="carsScroll">
 <div class="car-card">
 <img class="car-card-img" src="images/stelvio-front.jpeg" alt="Alfa Romeo Stelvio - Frontale">
 <div class="car-card-body">
@@ -341,6 +367,7 @@ Chiedi Info su WhatsApp
 <div class="car-card-details">2.2 TD 160CV AT8 &middot; 2023 &middot; 37.000 km</div>
 <div class="car-card-price">&euro;28.500</div>
 <div class="car-card-badge">Interni Premium</div>
+</div>
 </div>
 </div>
 </div>
@@ -458,6 +485,7 @@ Chiedi una simulazione
 <div class="container">
 <div class="footer-links">
 <a href="https://www.costaautogomme.it" target="_blank">Sito Web</a>
+<a href="https://www.autoscout24.it/concessionari/costa-auto-e-gomme" target="_blank">AutoScout24</a>
 <a href="#top">Torna su</a>
 </div>
 <p>&copy; 2026 Costa Auto&Gomme — Tutti i diritti riservati</p>
@@ -478,6 +506,23 @@ function toggleMobile(){document.getElementById('mobileNav').classList.toggle('o
 // Scroll reveal
 const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+// Hero gallery
+const heroImages=['images/stelvio-front.jpeg','images/stelvio-side-front.jpeg','images/stelvio-side.jpeg','images/stelvio-rear.jpeg','images/stelvio-interior.jpeg'];
+let heroIdx=0;
+const heroMain=document.getElementById('heroMainImg');
+const heroThumbs=document.querySelectorAll('#heroThumbs img');
+function setHeroImg(i){heroIdx=i;heroMain.style.opacity='0';setTimeout(()=>{heroMain.src=heroImages[i];heroMain.style.opacity='1'},200);heroThumbs.forEach((t,j)=>{t.classList.toggle('active',j===i)})}
+document.getElementById('heroPrev').addEventListener('click',()=>setHeroImg(heroIdx===0?heroImages.length-1:heroIdx-1));
+document.getElementById('heroNext').addEventListener('click',()=>setHeroImg(heroIdx===heroImages.length-1?0:heroIdx+1));
+heroThumbs.forEach(t=>t.addEventListener('click',()=>setHeroImg(parseInt(t.dataset.i))));
+// Hero swipe
+let hsx=0;const hiw=document.querySelector('.hero-img-wrap');
+hiw.addEventListener('touchstart',e=>{hsx=e.changedTouches[0].screenX},{passive:true});
+hiw.addEventListener('touchend',e=>{const d=hsx-e.changedTouches[0].screenX;if(Math.abs(d)>50){d>0?document.getElementById('heroNext').click():document.getElementById('heroPrev').click()}},{passive:true});
+// Cars carousel arrows
+const carsScroll=document.getElementById('carsScroll');
+document.getElementById('carsPrev').addEventListener('click',()=>carsScroll.scrollBy({left:-340,behavior:'smooth'}));
+document.getElementById('carsNext').addEventListener('click',()=>carsScroll.scrollBy({left:340,behavior:'smooth'}));
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
 </script>
