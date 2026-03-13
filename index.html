@@ -1,374 +1,485 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alfa Romeo Stelvio 2.2 TD 160CV | Costa Auto&Gomme - Campodarsego</title>
-    <meta name="description" content="Alfa Romeo Stelvio 2.2 Turbo Diesel 160CV Super AT8 - Usato garantito presso Costa Auto&Gomme, Campodarsego (PD). Finanziamento disponibile fino a 84 mesi.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Costa Auto&Gomme — Auto Usate Garantite a Campodarsego (PD)</title>
+<meta name="description" content="Auto usate selezionate con garanzia 12 mesi, km certificati e finanziamento fino a 84 mesi. Scrivici su WhatsApp. Campodarsego, Padova.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--dark:#0a0a0f;--dark-card:#12121a;--dark-border:#1e1e2e;
+--accent:#25D366;--accent-glow:rgba(37,211,102,.25);
+--gold:#f0c040;--white:#f5f5f7;--gray:#8a8a9a;--gray-light:#c5c5d0;
+--red:#e63946;
+--font-display:'Bebas Neue',sans-serif;
+--font-body:'Plus Jakarta Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--dark);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+/* UTILITY */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section-label{font-family:var(--font-display);font-size:clamp(11px,1.2vw,13px);letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.section-title{font-family:var(--font-display);font-size:clamp(32px,5vw,56px);letter-spacing:1px;line-height:1.05;margin-bottom:16px}
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 var(--accent-glow)}50%{box-shadow:0 0 0 16px transparent}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes grain{0%{transform:translate(0,0)}10%{transform:translate(-5%,-5%)}20%{transform:translate(-10%,5%)}30%{transform:translate(5%,-10%)}40%{transform:translate(-5%,15%)}50%{transform:translate(-10%,5%)}60%{transform:translate(15%,0)}70%{transform:translate(0,10%)}80%{transform:translate(-15%,0)}90%{transform:translate(10%,5%)}100%{transform:translate(5%,0)}}
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+/* GRAIN OVERLAY */
+body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");animation:grain 4s steps(10) infinite}
+/* NAVBAR */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:14px 0;transition:all .4s ease;backdrop-filter:blur(0)}
+.navbar.scrolled{background:rgba(10,10,15,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--dark-border)}
+.navbar .container{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{height:70px;border-radius:10px;transition:all .3s ease}
+.navbar.scrolled .nav-logo{height:52px}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--gray-light);transition:color .3s}
+.nav-links a:hover{color:var(--accent)}
+.nav-wa{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#000;padding:10px 20px;border-radius:50px;font-weight:700;font-size:13px;transition:all .3s;animation:pulse 2.5s infinite}
+.nav-wa:hover{transform:scale(1.05);box-shadow:0 0 30px var(--accent-glow)}
+.nav-wa svg{width:18px;height:18px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.hamburger span{width:24px;height:2px;background:var(--white);transition:all .3s}
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:120px}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(37,211,102,.06) 0%,transparent 60%)}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(transparent,var(--dark))}
+.hero .container{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+.hero-content{animation:fadeUp .8s ease forwards}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);padding:8px 16px;border-radius:50px;font-size:12px;font-weight:600;color:var(--accent);margin-bottom:24px;letter-spacing:1px;text-transform:uppercase}
+.hero-badge::before{content:'';width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+.hero h1{font-family:var(--font-display);font-size:clamp(48px,7vw,90px);line-height:.95;letter-spacing:-1px;margin-bottom:20px}
+.hero h1 .accent{color:var(--accent)}
+.hero-sub{font-size:17px;color:var(--gray-light);line-height:1.6;margin-bottom:8px;max-width:480px}
+.hero-price{font-family:var(--font-display);font-size:clamp(36px,5vw,60px);color:var(--accent);margin:20px 0}
+.hero-specs{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:32px}
+.spec-tag{background:var(--dark-card);border:1px solid var(--dark-border);padding:8px 16px;border-radius:8px;font-size:13px;font-weight:500;color:var(--gray-light)}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#000;padding:16px 32px;border-radius:12px;font-weight:700;font-size:15px;transition:all .3s;border:none;cursor:pointer}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 40px var(--accent-glow)}
+.btn-wa svg{width:20px;height:20px}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid var(--dark-border);color:var(--white);padding:16px 32px;border-radius:12px;font-weight:600;font-size:15px;transition:all .3s}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.hero-visual{position:relative;animation:fadeUp 1s .2s ease both}
+.hero-img-wrap{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/3}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 6s ease}
+.hero-img-wrap:hover img{transform:scale(1.05)}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(37,211,102,.1) 0%,transparent 50%);pointer-events:none}
+.hero-guarantee{position:absolute;top:20px;right:20px;background:var(--accent);color:#000;padding:12px 18px;border-radius:12px;font-weight:700;font-size:13px;letter-spacing:.5px;text-transform:uppercase;box-shadow:0 8px 30px var(--accent-glow)}
+/* STATS BAR */
+.stats-bar{position:relative;z-index:5;padding:40px 0;border-top:1px solid var(--dark-border);border-bottom:1px solid var(--dark-border)}
+.stats-bar .container{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat-item .stat-number{font-family:var(--font-display);font-size:clamp(28px,4vw,44px);color:var(--accent)}
+.stat-item .stat-label{font-size:13px;color:var(--gray);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+/* VANTAGGI */
+.vantaggi{padding:100px 0}
+.vantaggi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.vantaggio-card{background:var(--dark-card);border:1px solid var(--dark-border);border-radius:16px;padding:36px 28px;transition:all .4s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden}
+.vantaggio-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);transform:scaleX(0);transition:transform .4s ease;transform-origin:left}
+.vantaggio-card:hover{transform:translateY(-8px);border-color:rgba(37,211,102,.3)}
+.vantaggio-card:hover::before{transform:scaleX(1)}
+.vantaggio-icon{width:52px;height:52px;background:rgba(37,211,102,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:24px}
+.vantaggio-card h3{font-family:var(--font-display);font-size:22px;letter-spacing:.5px;margin-bottom:10px}
+.vantaggio-card p{font-size:14px;color:var(--gray);line-height:1.6}
+/* CAROSELLO AUTO */
+.carosello{padding:100px 0;background:linear-gradient(180deg,var(--dark) 0%,#0d0d14 100%)}
+.cars-scroll{display:flex;gap:24px;overflow-x:auto;padding:48px 0 24px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.cars-scroll::-webkit-scrollbar{display:none}
+.car-card{flex:0 0 320px;scroll-snap-align:start;background:var(--dark-card);border:1px solid var(--dark-border);border-radius:16px;overflow:hidden;transition:all .4s ease}
+.car-card:hover{transform:translateY(-6px);border-color:rgba(37,211,102,.3);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.car-card-img{width:100%;height:200px;object-fit:cover;transition:transform .6s ease}
+.car-card:hover .car-card-img{transform:scale(1.05)}
+.car-card-body{padding:24px}
+.car-card-model{font-family:var(--font-display);font-size:20px;letter-spacing:.5px;margin-bottom:4px}
+.car-card-details{font-size:13px;color:var(--gray);margin-bottom:16px}
+.car-card-price{font-family:var(--font-display);font-size:28px;color:var(--accent)}
+.car-card-badge{display:inline-block;background:rgba(37,211,102,.1);color:var(--accent);font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;margin-top:12px;letter-spacing:.5px;text-transform:uppercase}
+.carosello-cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:48px;justify-content:center}
+/* STEPS */
+.steps{padding:100px 0}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}
+.step-card{text-align:center;padding:40px 24px;position:relative}
+.step-number{font-family:var(--font-display);font-size:80px;color:rgba(37,211,102,.08);position:absolute;top:0;left:50%;transform:translateX(-50%)}
+.step-icon{width:64px;height:64px;margin:0 auto 24px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;position:relative;z-index:1}
+.step-card h3{font-family:var(--font-display);font-size:22px;margin-bottom:10px;position:relative;z-index:1}
+.step-card p{font-size:14px;color:var(--gray);line-height:1.6;position:relative;z-index:1}
+/* FINANZIAMENTO */
+.finanziamento{padding:100px 0;background:linear-gradient(180deg,var(--dark) 0%,#0f0f18 50%,var(--dark) 100%);position:relative;overflow:hidden}
+.finanziamento::before{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(37,211,102,.06),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+.fin-box{background:var(--dark-card);border:1px solid var(--dark-border);border-radius:24px;padding:60px;text-align:center;position:relative;z-index:1;max-width:800px;margin:0 auto}
+.fin-features{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:40px 0}
+.fin-feat{text-align:center}
+.fin-feat-value{font-family:var(--font-display);font-size:36px;color:var(--accent)}
+.fin-feat-label{font-size:13px;color:var(--gray);margin-top:4px}
+.fin-docs{font-size:14px;color:var(--gray);margin:24px 0;line-height:1.8}
+/* CONTATTI */
+.contatti{padding:100px 0}
+.contatti-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px}
+.contatti-info{display:flex;flex-direction:column;gap:24px}
+.contatto-item{display:flex;gap:16px;align-items:flex-start}
+.contatto-icon{width:48px;height:48px;background:rgba(37,211,102,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.contatto-text h4{font-size:15px;font-weight:700;margin-bottom:4px}
+.contatto-text p{font-size:14px;color:var(--gray);line-height:1.5}
+.contatti-map{border-radius:16px;overflow:hidden;border:1px solid var(--dark-border);min-height:350px}
+.contatti-map iframe{width:100%;height:100%;min-height:350px;border:0;filter:invert(90%) hue-rotate(180deg) brightness(1.1) contrast(1.1)}
+/* FOOTER */
+footer{padding:40px 0;border-top:1px solid var(--dark-border);text-align:center}
+footer p{font-size:13px;color:var(--gray)}
+footer .footer-links{display:flex;gap:24px;justify-content:center;margin-bottom:16px}
+footer .footer-links a{font-size:13px;color:var(--gray-light);transition:color .3s}
+footer .footer-links a:hover{color:var(--accent)}
+/* FLOATING WHATSAPP */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:999;width:60px;height:60px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px var(--accent-glow);transition:all .3s;animation:float 3s ease-in-out infinite;cursor:pointer}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 8px 40px var(--accent-glow)}
+.wa-float svg{width:30px;height:30px;fill:#000}
+/* RESPONSIVE */
+@media(max-width:968px){
+.nav-links{display:none}
+.hamburger{display:flex}
+.hero .container{grid-template-columns:1fr;text-align:center}
+.hero-content{order:2}
+.hero-visual{order:1}
+.hero-specs{justify-content:center}
+.hero-ctas{justify-content:center}
+.hero-sub{margin:0 auto 8px}
+.vantaggi-grid{grid-template-columns:1fr 1fr}
+.steps-grid{grid-template-columns:1fr}
+.contatti-grid{grid-template-columns:1fr}
+.fin-features{grid-template-columns:1fr}
+.fin-box{padding:40px 24px}
+.stats-bar .container{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+.vantaggi-grid{grid-template-columns:1fr}
+.car-card{flex:0 0 280px}
+.hero h1{font-size:42px}
+.nav-logo{height:56px}
+.navbar.scrolled .nav-logo{height:44px}
+}
+/* MOBILE NAV */
+.mobile-nav{position:fixed;inset:0;background:rgba(10,10,15,.98);z-index:998;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-nav.open{opacity:1;pointer-events:all}
+.mobile-nav a{font-family:var(--font-display);font-size:32px;letter-spacing:2px;text-transform:uppercase;transition:color .3s}
+.mobile-nav a:hover{color:var(--accent)}
+.mobile-nav-close{position:absolute;top:24px;right:24px;width:40px;height:40px;background:none;border:none;color:var(--white);font-size:28px;cursor:pointer}
+</style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="header" id="top">
-        <div class="container header-inner">
-            <a href="#top" class="header-logo-link">
-                <img src="images/logo-costa.jpeg" alt="Costa Auto&Gomme" class="header-logo">
-            </a>
-            <nav class="header-nav">
-                <a href="#occasione">L'Auto</a>
-                <a href="#perche-noi">Perche Noi</a>
-                <a href="#servizi">Servizi</a>
-                <a href="#contatti">Contatti</a>
-            </nav>
-            <a href="https://wa.me/393284120553?text=Ciao!%20Sono%20interessato%20all%27Alfa%20Romeo%20Stelvio%20vista%20sul%20vostro%20sito.%20Posso%20avere%20maggiori%20informazioni%3F" class="header-cta" target="_blank" rel="noopener">
-                <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                Scrivici su WhatsApp
-            </a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </header>
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+<div class="container">
+<a href="#top"><img src="images/logo-costa.jpeg" alt="Costa Auto&Gomme" class="nav-logo"></a>
+<div class="nav-links">
+<a href="#vantaggi">Perche Noi</a>
+<a href="#auto">Le Auto</a>
+<a href="#finanziamento">Finanziamento</a>
+<a href="#contatti">Contatti</a>
+<a href="https://wa.me/393284120553?text=Ciao!%20Ho%20visto%20il%20vostro%20sito%20e%20vorrei%20maggiori%20informazioni." class="nav-wa" target="_blank">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+WhatsApp
+</a>
+</div>
+<div class="hamburger" onclick="toggleMobile()">
+<span></span><span></span><span></span>
+</div>
+</div>
+</nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content-wrapper">
-            <div class="container">
-                <div class="hero-text">
-                    <h1 class="hero-title">Trova l'Auto Perfetta per Te,<br><span class="hero-highlight">Senza Sorprese.</span></h1>
-                    <p class="hero-subtitle">Vendita auto usate multimarca, noleggio e servizio gommista a Campodarsego.<br>Affidati a chi mette la tua sicurezza al primo posto.</p>
-                    <div class="hero-buttons">
-                        <a href="#occasione" class="btn btn-primary">Vedi l'Occasione</a>
-                        <a href="#contatti" class="btn btn-outline">Valuta il tuo Usato</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+<button class="mobile-nav-close" onclick="toggleMobile()">&#10005;</button>
+<a href="#vantaggi" onclick="toggleMobile()">Perche Noi</a>
+<a href="#auto" onclick="toggleMobile()">Le Auto</a>
+<a href="#finanziamento" onclick="toggleMobile()">Finanziamento</a>
+<a href="#contatti" onclick="toggleMobile()">Contatti</a>
+<a href="https://wa.me/393284120553?text=Ciao!%20Ho%20visto%20il%20vostro%20sito%20e%20vorrei%20maggiori%20informazioni." class="btn-wa" target="_blank">
+<svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Scrivici su WhatsApp
+</a>
+</div>
 
-    <!-- Perche Noi / Trust Section -->
-    <section class="trust" id="perche-noi">
-        <div class="container">
-            <h2 class="section-title">Perche Scegliere Costa Auto&Gomme</h2>
-            <p class="section-subtitle">La tua tranquillita e la nostra priorita</p>
-            <div class="trust-grid">
-                <div class="trust-card">
-                    <div class="trust-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <h3>Usato Garantito</h3>
-                    <p>Ogni vettura viene controllata minuziosamente per garantirti la massima tranquillita su strada.</p>
-                </div>
-                <div class="trust-card">
-                    <div class="trust-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    </div>
-                    <h3>Chilometraggio Certificato</h3>
-                    <p>Massima trasparenza. I chilometri delle nostre auto sono sempre reali e documentati.</p>
-                </div>
-                <div class="trust-card">
-                    <div class="trust-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-                    </div>
-                    <h3>Finanziamenti su Misura</h3>
-                    <p>Fino a 84 mesi. Troviamo insieme la rata piu comoda per le tue esigenze, in modo semplice e veloce.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- HERO -->
+<section class="hero" id="top">
+<div class="container">
+<div class="hero-content">
+<div class="hero-badge">Occasione della settimana</div>
+<h1>ALFA ROMEO<br><span class="accent">STELVIO</span></h1>
+<p class="hero-sub">2.2 Turbo Diesel 160CV Super AT8 — Usato garantito, km certificati, pronta consegna.</p>
+<div class="hero-price">&euro;28.500</div>
+<div class="hero-specs">
+<span class="spec-tag">2023</span>
+<span class="spec-tag">37.000 km</span>
+<span class="spec-tag">160 CV</span>
+<span class="spec-tag">Automatico AT8</span>
+<span class="spec-tag">Diesel</span>
+</div>
+<div class="hero-ctas">
+<a href="https://wa.me/393284120553?text=Ciao!%20Sono%20interessato%20all%27Alfa%20Romeo%20Stelvio%202.2%20TD%20160CV.%20Posso%20avere%20maggiori%20informazioni%3F" class="btn-wa" target="_blank">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Chiedi Info su WhatsApp
+</a>
+<a href="#auto" class="btn-secondary">Vedi tutte le auto &rarr;</a>
+</div>
+</div>
+<div class="hero-visual">
+<div class="hero-img-wrap">
+<img src="images/stelvio-front.jpeg" alt="Alfa Romeo Stelvio">
+<div class="hero-img-overlay"></div>
+</div>
+<div class="hero-guarantee">&#10003; GARANZIA 12 MESI</div>
+</div>
+</div>
+</section>
 
-    <!-- Occasione della Settimana -->
-    <section class="featured-car" id="occasione">
-        <div class="container">
-            <div class="featured-badge">OCCASIONE DELLA SETTIMANA</div>
-            <h2 class="section-title">Prestazioni, Stile ed Eleganza Italiana.</h2>
-            <p class="featured-car-name">ALFA ROMEO STELVIO 2.2 Turbo Diesel 160CV Super AT8</p>
+<!-- STATS BAR -->
+<section class="stats-bar">
+<div class="container">
+<div class="stat-item reveal"><div class="stat-number">12</div><div class="stat-label">Mesi di garanzia</div></div>
+<div class="stat-item reveal"><div class="stat-number">84</div><div class="stat-label">Rate finanziamento</div></div>
+<div class="stat-item reveal"><div class="stat-number">2h</div><div class="stat-label">Approvazione</div></div>
+<div class="stat-item reveal"><div class="stat-number">100%</div><div class="stat-label">Km certificati</div></div>
+</div>
+</section>
 
-            <!-- Gallery -->
-            <div class="gallery-wrapper">
-                <div class="gallery-main">
-                    <span class="gallery-tag">USATO GARANTITO</span>
-                    <img id="mainImage" src="images/stelvio-front.jpeg" alt="Alfa Romeo Stelvio Rosso - Vista Frontale">
-                    <button class="gallery-arrow gallery-arrow-left" id="prevBtn" aria-label="Foto precedente">&#10094;</button>
-                    <button class="gallery-arrow gallery-arrow-right" id="nextBtn" aria-label="Foto successiva">&#10095;</button>
-                    <div class="gallery-counter" id="galleryCounter">1 / 5</div>
-                </div>
-                <div class="gallery-thumbs" id="thumbsContainer">
-                    <img class="thumb active" src="images/stelvio-front.jpeg" alt="Vista frontale" data-index="0">
-                    <img class="thumb" src="images/stelvio-side-front.jpeg" alt="Vista laterale anteriore" data-index="1">
-                    <img class="thumb" src="images/stelvio-side.jpeg" alt="Vista laterale" data-index="2">
-                    <img class="thumb" src="images/stelvio-rear.jpeg" alt="Vista posteriore" data-index="3">
-                    <img class="thumb" src="images/stelvio-interior.jpeg" alt="Interni" data-index="4">
-                </div>
-            </div>
+<!-- VANTAGGI -->
+<section class="vantaggi" id="vantaggi">
+<div class="container">
+<div class="section-label reveal">Perche noi</div>
+<div class="section-title reveal">Compri sicuro.<br>Zero sorprese.</div>
+<div class="vantaggi-grid">
+<div class="vantaggio-card reveal">
+<div class="vantaggio-icon">&#128737;&#65039;</div>
+<h3>Garanzia 12 Mesi</h3>
+<p>Inclusa nel prezzo, su ogni auto. La tua tranquillita e gia compresa.</p>
+</div>
+<div class="vantaggio-card reveal">
+<div class="vantaggio-icon">&#128202;</div>
+<h3>Km Certificati</h3>
+<p>Chilometri reali, documentati e riportati in fattura. Massima trasparenza.</p>
+</div>
+<div class="vantaggio-card reveal">
+<div class="vantaggio-icon">&#128295;</div>
+<h3>Tagliando Pre-Consegna</h3>
+<p>Ogni auto viene revisionata prima della consegna. Pronta per la strada.</p>
+</div>
+<div class="vantaggio-card reveal">
+<div class="vantaggio-icon">&#128104;&#8205;&#128295;</div>
+<h3>Prova col Tuo Meccanico</h3>
+<p>Porta il tuo meccanico di fiducia. Niente da nascondere, tutto alla luce del sole.</p>
+</div>
+<div class="vantaggio-card reveal">
+<div class="vantaggio-icon">&#128179;</div>
+<h3>Finanziamento Facile</h3>
+<p>Fino a 84 mesi, anche Partita IVA. Anticipo zero disponibile, risposta in 2 ore.</p>
+</div>
+<div class="vantaggio-card reveal">
+<div class="vantaggio-icon">&#128666;</div>
+<h3>Consegna + Permuta</h3>
+<p>Consegna in tutta Italia. Valutiamo la tua auto in permuta.</p>
+</div>
+</div>
+</div>
+</section>
 
-            <!-- Specs Grid -->
-            <div class="specs-grid">
-                <div class="spec-card">
-                    <div class="spec-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                    </div>
-                    <div class="spec-label">Immatricolazione</div>
-                    <div class="spec-value">08/2023</div>
-                </div>
-                <div class="spec-card">
-                    <div class="spec-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                    </div>
-                    <div class="spec-label">Chilometri</div>
-                    <div class="spec-value">37.000 km</div>
-                </div>
-                <div class="spec-card">
-                    <div class="spec-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
-                    </div>
-                    <div class="spec-label">Motore</div>
-                    <div class="spec-value">2.2 Turbo Diesel</div>
-                </div>
-                <div class="spec-card">
-                    <div class="spec-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                    </div>
-                    <div class="spec-label">Potenza</div>
-                    <div class="spec-value">160 CV</div>
-                </div>
-                <div class="spec-card">
-                    <div class="spec-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v3"/></svg>
-                    </div>
-                    <div class="spec-label">Cambio</div>
-                    <div class="spec-value">Automatico AT8</div>
-                </div>
-                <div class="spec-card">
-                    <div class="spec-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-                    </div>
-                    <div class="spec-label">Trazione</div>
-                    <div class="spec-value">RWD (Posteriore)</div>
-                </div>
-            </div>
+<!-- CAROSELLO AUTO -->
+<section class="carosello" id="auto">
+<div class="container">
+<div class="section-label reveal">Parco Auto</div>
+<div class="section-title reveal">Trova la tua prossima auto.</div>
+</div>
+<div class="container">
+<div class="cars-scroll">
+<div class="car-card">
+<img class="car-card-img" src="images/stelvio-front.jpeg" alt="Alfa Romeo Stelvio - Frontale">
+<div class="car-card-body">
+<div class="car-card-model">Alfa Romeo Stelvio</div>
+<div class="car-card-details">2.2 TD 160CV AT8 &middot; 2023 &middot; 37.000 km</div>
+<div class="car-card-price">&euro;28.500</div>
+<div class="car-card-badge">Garanzia 12 mesi</div>
+</div>
+</div>
+<div class="car-card">
+<img class="car-card-img" src="images/stelvio-side-front.jpeg" alt="Alfa Romeo Stelvio - Laterale">
+<div class="car-card-body">
+<div class="car-card-model">Alfa Romeo Stelvio</div>
+<div class="car-card-details">2.2 TD 160CV AT8 &middot; 2023 &middot; 37.000 km</div>
+<div class="car-card-price">&euro;28.500</div>
+<div class="car-card-badge">Garanzia 12 mesi</div>
+</div>
+</div>
+<div class="car-card">
+<img class="car-card-img" src="images/stelvio-side.jpeg" alt="Alfa Romeo Stelvio - Lato">
+<div class="car-card-body">
+<div class="car-card-model">Alfa Romeo Stelvio</div>
+<div class="car-card-details">2.2 TD 160CV AT8 &middot; 2023 &middot; 37.000 km</div>
+<div class="car-card-price">&euro;28.500</div>
+<div class="car-card-badge">Garanzia 12 mesi</div>
+</div>
+</div>
+<div class="car-card">
+<img class="car-card-img" src="images/stelvio-rear.jpeg" alt="Alfa Romeo Stelvio - Posteriore">
+<div class="car-card-body">
+<div class="car-card-model">Alfa Romeo Stelvio</div>
+<div class="car-card-details">2.2 TD 160CV AT8 &middot; 2023 &middot; 37.000 km</div>
+<div class="car-card-price">&euro;28.500</div>
+<div class="car-card-badge">Garanzia 12 mesi</div>
+</div>
+</div>
+<div class="car-card">
+<img class="car-card-img" src="images/stelvio-interior.jpeg" alt="Alfa Romeo Stelvio - Interni">
+<div class="car-card-body">
+<div class="car-card-model">Alfa Romeo Stelvio</div>
+<div class="car-card-details">2.2 TD 160CV AT8 &middot; 2023 &middot; 37.000 km</div>
+<div class="car-card-price">&euro;28.500</div>
+<div class="car-card-badge">Interni Premium</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="carosello-cta">
+<a href="https://wa.me/393284120553?text=Ciao!%20Ho%20visto%20le%20vostre%20auto%20e%20vorrei%20maggiori%20informazioni." class="btn-wa" target="_blank">
+<svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Ti interessa un'auto? Scrivici
+</a>
+</div>
+</div>
+</section>
 
-            <div class="highlight-box">
-                <div class="highlight-icon">&#9733;</div>
-                <p class="highlight-text">Ammiraglia in tutti i sensi: comfort e prestigio dietro ad un volante. Un SUV che unisce sportivita italiana e praticita quotidiana.</p>
-            </div>
+<!-- STEPS -->
+<section class="steps">
+<div class="container">
+<div class="section-label reveal" style="text-align:center">Come funziona</div>
+<div class="section-title reveal" style="text-align:center">Tre passi e sei al volante.</div>
+<div class="steps-grid">
+<div class="step-card reveal">
+<div class="step-number">01</div>
+<div class="step-icon">&#128269;</div>
+<h3>Scegli la tua auto</h3>
+<p>Sfoglia il nostro parco auto o dicci cosa cerchi. Troviamo noi la soluzione giusta per te.</p>
+</div>
+<div class="step-card reveal">
+<div class="step-number">02</div>
+<div class="step-icon">&#128172;</div>
+<h3>Scrivici su WhatsApp</h3>
+<p>Ti rispondiamo subito con foto, video, dettagli e preventivo. Niente attese.</p>
+</div>
+<div class="step-card reveal">
+<div class="step-number">03</div>
+<div class="step-icon">&#128663;</div>
+<h3>Vieni a provarla</h3>
+<p>Prova su strada, tagliando fatto, garanzia inclusa. Nessuna sorpresa, solo la tua nuova auto.</p>
+</div>
+</div>
+</div>
+</section>
 
-            <!-- CTA -->
-            <div class="featured-cta-wrapper">
-                <a href="https://wa.me/393284120553?text=Ciao!%20Sono%20interessato%20all%27Alfa%20Romeo%20Stelvio%202.2%20TD%20160CV%20vista%20sul%20vostro%20sito.%20Vorrei%20prenotare%20un%20test%20drive!" class="btn btn-whatsapp btn-lg">
-                    <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    Prenota un Test Drive
-                </a>
-                <a href="https://wa.me/393284120553?text=Ciao!%20Vorrei%20informazioni%20sul%20finanziamento%20per%20l%27Alfa%20Romeo%20Stelvio%202.2%20TD%20160CV.%20Grazie!" class="btn btn-outline-light btn-lg">
-                    Richiedi Preventivo Finanziamento
-                </a>
-            </div>
-        </div>
-    </section>
+<!-- FINANZIAMENTO -->
+<section class="finanziamento" id="finanziamento">
+<div class="container">
+<div class="fin-box reveal">
+<div class="section-label">Finanziamento</div>
+<div class="section-title">Approvato in 2 ore.</div>
+<div class="fin-features">
+<div class="fin-feat"><div class="fin-feat-value">0&euro;</div><div class="fin-feat-label">Anticipo disponibile</div></div>
+<div class="fin-feat"><div class="fin-feat-value">84</div><div class="fin-feat-label">Rate massime</div></div>
+<div class="fin-feat"><div class="fin-feat-value">2h</div><div class="fin-feat-label">Tempo di risposta</div></div>
+</div>
+<div class="fin-docs">Anche per Partita IVA. Servono solo: <strong>documento d'identita</strong>, <strong>codice fiscale</strong> e <strong>ultima busta paga</strong>.</div>
+<a href="https://wa.me/393284120553?text=Ciao!%20Vorrei%20informazioni%20sul%20finanziamento%20per%20un%27auto.%20Grazie!" class="btn-wa" target="_blank">
+<svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Chiedi una simulazione
+</a>
+</div>
+</div>
+</section>
 
-    <!-- Finanziamento Section -->
-    <section class="finance" id="finanziamento">
-        <div class="container">
-            <h2 class="section-title">Finanziamento su Misura</h2>
-            <p class="section-subtitle">Realizziamo il tuo sogno con rate personalizzate</p>
-            <div class="finance-grid">
-                <div class="finance-card">
-                    <div class="finance-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-                    </div>
-                    <h3>Rate Flessibili</h3>
-                    <p>Piani di finanziamento personalizzati fino a 84 mesi con anticipo a partire da zero</p>
-                </div>
-                <div class="finance-card">
-                    <div class="finance-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    </div>
-                    <h3>Approvazione Rapida</h3>
-                    <p>Risposta in tempi brevi. Ti seguiamo in ogni fase della pratica di finanziamento</p>
-                </div>
-                <div class="finance-card">
-                    <div class="finance-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-                    </div>
-                    <h3>Soluzioni per Tutti</h3>
-                    <p>Collaboriamo con i migliori istituti di credito per offrirti le condizioni piu vantaggiose</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- CONTATTI -->
+<section class="contatti" id="contatti">
+<div class="container">
+<div class="section-label reveal">Dove trovarci</div>
+<div class="section-title reveal">Passa a trovarci.</div>
+<div class="contatti-grid">
+<div class="contatti-info reveal">
+<div class="contatto-item">
+<div class="contatto-icon">&#128205;</div>
+<div class="contatto-text">
+<h4>Indirizzo</h4>
+<p>Via Cristoforo Colombo, 10<br>35011 Campodarsego (PD)</p>
+</div>
+</div>
+<div class="contatto-item">
+<div class="contatto-icon">&#128241;</div>
+<div class="contatto-text">
+<h4>WhatsApp</h4>
+<p><a href="https://wa.me/393284120553" style="color:var(--accent);font-weight:600">328 412 0553</a></p>
+</div>
+</div>
+<div class="contatto-item">
+<div class="contatto-icon">&#9993;&#65039;</div>
+<div class="contatto-text">
+<h4>Email</h4>
+<p>Costantinopd@gmail.com</p>
+</div>
+</div>
+<div class="contatto-item">
+<div class="contatto-icon">&#128336;</div>
+<div class="contatto-text">
+<h4>Orari</h4>
+<p>Lun-Ven: 9:00-12:30 / 14:00-19:00<br>Sabato: 9:00-12:30</p>
+</div>
+</div>
+<div class="contatto-item">
+<div class="contatto-icon">&#128295;</div>
+<div class="contatto-text">
+<h4>Servizi</h4>
+<p>Vendita Auto &middot; Officina &middot; Noleggio Auto &middot; Finanziamenti</p>
+</div>
+</div>
+</div>
+<div class="contatti-map reveal">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2791.5!2d12.0!3d45.43!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477eda3e1a11c0d9%3A0x0!2sVia+Cristoforo+Colombo+10%2C+Campodarsego+PD!5e0!3m2!1sit!2sit!4v1" loading="lazy"></iframe>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Servizi Section -->
-    <section class="services" id="servizi">
-        <div class="container">
-            <h2 class="section-title">I Nostri Servizi</h2>
-            <p class="section-subtitle">Un punto di riferimento completo per la tua auto</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17m-2 0a2 2 0 104 0 2 2 0 10-4 0"/><path d="M17 17m-2 0a2 2 0 104 0 2 2 0 10-4 0"/><path d="M5 17H3v-6l2-5h9l4 5h1a2 2 0 012 2v4h-2"/><path d="M9 17h6"/></svg>
-                    </div>
-                    <h3>Vendita Auto Usate</h3>
-                    <p>Per neopatentati, famiglie o amanti delle auto premium. Abbiamo l'auto giusta per te.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                    </div>
-                    <h3>Noleggio Auto</h3>
-                    <p>Soluzioni flessibili per ogni tua esigenza di mobilita, a breve e lungo termine.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-                    </div>
-                    <h3>Officina & Gommista</h3>
-                    <p>Vendita, montaggio e assistenza pneumatici di tutte le marche e dimensioni.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- FOOTER -->
+<footer>
+<div class="container">
+<div class="footer-links">
+<a href="https://www.costaautogomme.it" target="_blank">Sito Web</a>
+<a href="#top">Torna su</a>
+</div>
+<p>&copy; 2026 Costa Auto&Gomme — Tutti i diritti riservati</p>
+</div>
+</footer>
 
-    <!-- Recensioni Section -->
-    <section class="reviews" id="recensioni">
-        <div class="container">
-            <h2 class="section-title">Cosa Dicono i Nostri Clienti</h2>
-            <p class="section-subtitle">La soddisfazione dei clienti e il nostro miglior biglietto da visita</p>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="review-text">"Ho acquistato la mia prima auto qui. Personale trasparente sui chilometri e finanziamento approvato in pochissimo tempo. Consigliati!"</p>
-                    <div class="review-author">Marco T.</div>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="review-text">"Servizio gommista impeccabile e veloce. Ne ho approfittato anche per far valutare la mia vecchia auto e mi hanno fatto un'ottima offerta."</p>
-                    <div class="review-author">Laura G.</div>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="review-text">"Professionalita e cortesia. L'auto era esattamente come descritta nell'annuncio. Il finanziamento su misura mi ha permesso di acquistarla subito."</p>
-                    <div class="review-author">Giuseppe M.</div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/393284120553?text=Ciao!%20Ho%20visto%20il%20vostro%20sito%20e%20vorrei%20maggiori%20informazioni." class="wa-float" target="_blank">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
-    <!-- Modulo Contatti -->
-    <section class="contact" id="contatti">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-form-wrapper">
-                    <h2 class="section-title" style="text-align:left">Fai il primo passo verso la tua nuova auto.</h2>
-                    <p class="contact-desc">Vuoi prenotare un test drive o scoprire quanto vale la tua auto attuale? Compila il modulo qui sotto senza impegno.</p>
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <label for="nome">Nome e Cognome</label>
-                            <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="telefono">Telefono</label>
-                            <input type="tel" id="telefono" name="telefono" placeholder="Il tuo numero" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="richiesta">Cosa desideri fare?</label>
-                            <select id="richiesta" name="richiesta" required>
-                                <option value="" disabled selected>Seleziona un'opzione</option>
-                                <option value="test-drive">Prenotare un Test Drive</option>
-                                <option value="permuta">Valutare la mia auto in permuta</option>
-                                <option value="finanziamento">Richiedere un finanziamento</option>
-                                <option value="info">Richiesta informazioni generali</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="messaggio">Messaggio (opzionale)</label>
-                            <textarea id="messaggio" name="messaggio" placeholder="Scrivi qui il tuo messaggio..." rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-lg btn-full">Richiedi Contatto</button>
-                    </form>
-                </div>
-                <div class="contact-info-wrapper">
-                    <div class="dealer-card">
-                        <img src="images/logo-costa.jpeg" alt="Costa Auto&Gomme Logo" class="dealer-logo">
-                        <h3 class="dealer-name">Costa Auto&Gomme</h3>
-                        <div class="dealer-services">
-                            <span class="service-tag">Vendita Auto</span>
-                            <span class="service-tag">Noleggio Auto</span>
-                            <span class="service-tag">Officina</span>
-                            <span class="service-tag">Gommista</span>
-                            <span class="service-tag">Finanziamenti</span>
-                        </div>
-                        <div class="dealer-details">
-                            <div class="dealer-detail">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                                <span>Via Cristoforo Colombo, 10<br>35011 Campodarsego (PD)</span>
-                            </div>
-                            <div class="dealer-detail">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-                                <a href="tel:+393284120553">328 412 0553</a>
-                            </div>
-                            <div class="dealer-detail">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-                                <a href="https://www.costaautogomme.it" target="_blank" rel="noopener">www.costaautogomme.it</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dealer-map">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2790.123!2d11.9215!3d45.5175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477eda4e4e4e4e4f%3A0x0!2sVia%20Cristoforo%20Colombo%2C%2010%2C%2035011%20Campodarsego%20PD!5e0!3m2!1sit!2sit!4v1"
-                            width="100%"
-                            height="100%"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                            title="Posizione Costa Auto&Gomme">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Floating WhatsApp CTA -->
-    <a href="https://wa.me/393284120553?text=Ciao!%20Sono%20interessato%20all%27Alfa%20Romeo%20Stelvio%20vista%20sul%20vostro%20sito.%20Posso%20avere%20maggiori%20informazioni%3F" class="floating-cta" target="_blank" rel="noopener" aria-label="Contattaci su WhatsApp">
-        <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    </a>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-inner">
-            <div class="footer-brand">
-                <img src="images/logo-costa.jpeg" alt="Costa Auto&Gomme" class="footer-logo">
-                <p>Vendita Auto | Noleggio | Officina | Gommista</p>
-            </div>
-            <div class="footer-links">
-                <div class="footer-col">
-                    <h4>Contatti</h4>
-                    <p>Via Cristoforo Colombo, 10</p>
-                    <p>35011 Campodarsego (PD)</p>
-                    <p><a href="tel:+393284120553">328 412 0553</a></p>
-                </div>
-                <div class="footer-col">
-                    <h4>Link Utili</h4>
-                    <p><a href="https://www.costaautogomme.it" target="_blank" rel="noopener">Sito Web</a></p>
-                    <p><a href="#occasione">Auto in Vendita</a></p>
-                    <p><a href="#contatti">Contattaci</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2024 Costa Auto&Gomme - Tutti i diritti riservati</p>
-                <p class="footer-note">Le immagini e le informazioni sono indicative. Contattaci per verificare disponibilita e dettagli.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+<script>
+// Navbar scroll effect
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>50)});
+// Mobile nav
+function toggleMobile(){document.getElementById('mobileNav').classList.toggle('open')}
+// Scroll reveal
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+</script>
 </body>
 </html>
