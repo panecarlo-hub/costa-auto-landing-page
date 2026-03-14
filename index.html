@@ -156,25 +156,65 @@ footer .footer-links a:hover{color:var(--accent)}
 @media(max-width:968px){
 .nav-links{display:none}
 .hamburger{display:flex}
-.hero .container{grid-template-columns:1fr;text-align:center}
+.hero .container{grid-template-columns:1fr;text-align:center;gap:24px}
+.hero{padding-top:90px;min-height:auto;padding-bottom:40px}
 .hero-content{order:2}
 .hero-visual{order:1}
 .hero-specs{justify-content:center}
-.hero-ctas{justify-content:center}
+.hero-ctas{justify-content:center;flex-direction:column;align-items:stretch}
+.hero-ctas .btn-wa,.hero-ctas .btn-secondary{width:100%;justify-content:center;padding:14px 24px}
 .hero-sub{margin:0 auto 8px}
+.hero-price{margin:12px 0}
+.hero-guarantee{font-size:11px;padding:8px 12px;top:12px;right:12px}
 .vantaggi-grid{grid-template-columns:1fr 1fr}
-.steps-grid{grid-template-columns:1fr}
+.vantaggi{padding:60px 0}
+.steps{padding:60px 0}
+.steps-grid{grid-template-columns:1fr;gap:16px}
+.step-card{padding:24px 16px}
+.step-number{font-size:60px}
 .contatti-grid{grid-template-columns:1fr}
-.fin-features{grid-template-columns:1fr}
-.fin-box{padding:40px 24px}
-.stats-bar .container{grid-template-columns:repeat(2,1fr)}
+.contatti{padding:60px 0}
+.fin-features{grid-template-columns:repeat(3,1fr)}
+.fin-box{padding:32px 20px}
+.finanziamento{padding:60px 0}
+.carosello{padding:60px 0}
+.stats-bar .container{grid-template-columns:repeat(2,1fr);gap:16px}
+.stats-bar{padding:24px 0}
+.section-title{font-size:clamp(28px,6vw,40px)}
+footer .footer-links{gap:16px}
 }
 @media(max-width:600px){
-.vantaggi-grid{grid-template-columns:1fr}
+.vantaggi-grid{grid-template-columns:1fr;gap:12px}
+.vantaggio-card{padding:24px 20px;display:flex;gap:16px;align-items:flex-start}
+.vantaggio-card .vantaggio-icon{margin-bottom:0;flex-shrink:0;width:44px;height:44px;font-size:20px}
+.vantaggio-card h3{font-size:18px;margin-bottom:4px}
+.vantaggio-card p{font-size:13px}
 .car-card{flex:0 0 280px}
-.hero h1{font-size:42px}
-.nav-logo{height:56px}
-.navbar.scrolled .nav-logo{height:44px}
+.hero h1{font-size:38px}
+.hero-sub{font-size:15px}
+.hero-badge{font-size:11px;padding:6px 12px}
+.nav-logo{height:50px}
+.navbar{padding:10px 0}
+.navbar.scrolled .nav-logo{height:40px}
+.hero-thumbs img{width:56px;height:40px}
+.hero-img-wrap{aspect-ratio:16/10;border-radius:14px}
+.spec-tag{padding:6px 12px;font-size:12px}
+.hero-specs{gap:8px}
+.btn-wa{padding:14px 24px;font-size:14px;border-radius:10px}
+.btn-secondary{padding:12px 24px;font-size:14px;border-radius:10px}
+.fin-features{grid-template-columns:repeat(3,1fr);gap:12px}
+.fin-feat-value{font-size:28px}
+.fin-feat-label{font-size:11px}
+.fin-docs{font-size:13px}
+.cars-scroll{padding:24px 0 16px}
+.contatti-map{min-height:250px}
+.contatti-map iframe{min-height:250px}
+.wa-float{width:52px;height:52px;bottom:16px;right:16px}
+.wa-float svg{width:26px;height:26px}
+footer .footer-links{gap:12px;flex-wrap:wrap}
+footer .footer-links a{font-size:12px}
+footer p{font-size:12px}
+.container{padding:0 16px}
 }
 /* MOBILE NAV */
 .mobile-nav{position:fixed;inset:0;background:rgba(10,10,15,.98);z-index:998;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .3s}
